@@ -1,4 +1,4 @@
-
+//check delenie na nol' and return true or false
 
 public class Proverka {
     static boolean prov(double a, double b) {
