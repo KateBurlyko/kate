@@ -6,9 +6,9 @@ this class has method main
  */
 
 public class Main {
-/*
-class main inputs number and method decision
- */
+    /*
+    class main inputs number and  call method decision, catch exeption
+     */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         double a;
@@ -25,18 +25,16 @@ class main inputs number and method decision
                 System.out.print("Input c:");
                 c = in.nextDouble();
             }
-         while (a < Double.MIN_VALUE || a > Double.MAX_VALUE ||
-                    b<Double.MIN_VALUE ||b >Double.MAX_VALUE ||
-                    c<Double.MIN_VALUE ||c >Double.MAX_VALUE) ;
+            while (a < Double.MIN_VALUE || a > Double.MAX_VALUE ||
+                    b < Double.MIN_VALUE || b > Double.MAX_VALUE ||
+                    c < Double.MIN_VALUE || c > Double.MAX_VALUE);
 
-            /*
-create class object and call the method decision
- */
-            Decision decis = new Decision();
-            decis.decision(a,b,c);
+
+            Decision decis = new Decision(); // create class object
+            decis.decision(a, b, c); //call the method decision
+        } catch (java.util.InputMismatchException e) {
+            System.out.print("wrong data");
+            System.exit(5);
+        }
     }
-    catch(java.util.InputMismatchException e){
-        System.exit(5);
-    }
-}
 }
