@@ -1,9 +1,7 @@
 package ht4;
 
 /**
- *
  * initialized variables and call methods accordin to the task
- *
  */
 public class Main {
 

@@ -4,13 +4,12 @@ package ht4;
  * solves equation
  */
 public class Decision {
-    /*
-   * counting roots of task
+    /**
+     * counting roots of task
      *
      * @param a first number
      * @param b second number
-     * *@param c second number
-     * @return nothing
+     * @param c second number
      */
     public void decision(double a, double b, double c) {
         double d = b * b - 4 * a * c;
