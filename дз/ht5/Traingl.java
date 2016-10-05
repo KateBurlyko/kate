@@ -1,16 +1,16 @@
 package ht5;
 
 /**
- * it has method tri
+ *  method computes the type of figure
  */
 public class Traingl {
-    /* method calculates the shape of figure
-   *
-   * @param a first side
-   * @param b second side
-   * *@param c second side
-   * @return nothing
-   */
+    /**
+     * It compares side and computes the type of figure
+     *
+     * @param a first side
+     * @param b second side
+     * @param c second side
+     */
     public void tri(double a, double b, double c) {
         if (Double.isNaN(a / 0) || Double.isNaN(b / 0) || Double.isNaN(c / 0) ||
                 Double.isInfinite(a) || Double.isInfinite(b) || Double.isInfinite(c) ||
@@ -26,5 +26,4 @@ public class Traingl {
         }
 
     }
-
 }
