@@ -1,7 +1,10 @@
 package ht4;
 
-import java.util.Scanner;
-
+/**
+ *
+ * initialized variables and call methods accordin to the task
+ *
+ */
 public class Main {
 
     /**
