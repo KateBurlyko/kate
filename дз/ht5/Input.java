@@ -3,12 +3,12 @@ package ht5;
 import java.util.Scanner;
 
 /**
- * It receives and processes the input data
+ * entry and validation variables
  */
 public class Input {
 
     /**
-     * method reads the values and checks the entered data
+     * method reads from the keybords the values of variables and checks the entered data
      * @param a - first side
      * @param b - second side
      * @param c - third side
