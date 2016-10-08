@@ -13,21 +13,21 @@ public class Main {
      * @param args - conveys the name of the variable returns the value of a variable.
      */
     public static void main(String[] args) {
-        String a;
+        String line;
         Scanner in = new Scanner(System.in);
         System.out.print("Input string: ");
-        a = in.nextLine();
+        line = in.nextLine();
 
         CheckNoNumber on = new CheckNoNumber();
-        on.checkNoNumber(a);
+        on.checkNoNumber(line);
 
         CheckNoLetters tw = new CheckNoLetters();
-        tw.checkNoLetters(a);
+        tw.checkNoLetters(line);
 
         CheckNumberWords tr = new CheckNumberWords();
-        tr.checkNumberWords(a);
+        tr.checkNumberWords(line);
 
         CheckDictionary fo = new CheckDictionary();
-        fo.checkDictionary(a);
+        fo.checkDictionary(line);
     }
 }

@@ -9,11 +9,11 @@ public class CheckDictionary {
      * The method checks string by comparing elements of arrays. one array with word from ductionary
      * second array with words which input user.
      *
-     * @param a - string which user input.
+     * @param line - string which user input.
      */
-    public void checkDictionary(String a) {
+    public void checkDictionary(String line) {
         String[] dict = {"cat", "dog", "hedgehog", "turtle", "rabbit"};
-        String parts[] = a.split("\\p{Punct}");
+        String parts[] = line.split("\\p{Punct}");
         for (int i = 0; i < dict.length; i++) {
             for (int j = 0; j < parts.length; j++) {
                 if (i == j) {
