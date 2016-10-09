@@ -1,4 +1,4 @@
-package ht6;
+package ht7;
 
 /**
  * Checks line on rule 1: no numbers.

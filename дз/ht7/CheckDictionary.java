@@ -1,4 +1,4 @@
-package ht6;
+package ht7;
 
 /**
  * Checks line on rule 4: contains word from dictionary.
@@ -13,7 +13,7 @@ public class CheckDictionary {
      */
   public void checkDictionary(String line) {
         String[] dict = {"cat", "dog", "hedgehog", "turtle", "rabbit"};
-        String[] parts = line.split("[,.:; !?]");
+        String[] parts = line.split("[\\s\\p{Punct}]+");
         for (int i = 0; i < parts.length; i++) {
             for(int j = 0; j < dict.length; j++)
             if ( parts[i].equals(dict[j])) {

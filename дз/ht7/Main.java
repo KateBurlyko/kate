@@ -1,4 +1,4 @@
-package ht6;
+package ht7;
 
 import java.util.Scanner;
 
