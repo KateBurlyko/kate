@@ -10,7 +10,7 @@ public class Main {
     /**
      * Scanner line and call methods which test rules.
      *
-     * @param args - conveys the name of the variable returns the value of a variable.
+     * @param args conveys the name of the variable returns the value of a variable.
      */
     public static void main(String[] args) {
         String line;

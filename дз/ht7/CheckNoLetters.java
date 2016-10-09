@@ -8,7 +8,7 @@ public class CheckNoLetters {
     /**
      * The method checks letters on line and if there are no letters say about it.
      *
-     * @param line - string which user input.
+     * @param line string which user input.
      */
     public void checkNoLetters(String line) {
         if (line.matches("\\d+")) {
