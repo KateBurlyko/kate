@@ -1,5 +1,7 @@
 package ht7;
 
+import java.util.Scanner;
+
 /**
  * Checks line on rule 2:contains only numbers.
  */
@@ -11,9 +13,11 @@ public class CheckNoLetters {
      * @param line string which user input.
      */
     public void checkNoLetters(String line) {
-        if (line.matches("\\d+")) {
+        Scanner scanner = new Scanner(line);
+
+        if(scanner.hasNextInt()){
             System.out.println("String corresponds to rule 2: contains only numbers");
-        } else {
+        } else{
         }
     }
 }
