@@ -11,16 +11,17 @@ public class CheckRules {
      * @param line user input from keyboard.
      */
     public void chekRules(String line) {
+
         CheckNoNumber on = new CheckNoNumber();
-        on.checkNoNumber(line);
+        on.check(line);
 
         CheckNoLetters tw = new CheckNoLetters();
-        tw.checkNoLetters(line);
+        tw.check(line);
 
         CheckNumberWords tr = new CheckNumberWords();
-        tr.checkNumberWords(line);
+        tr.check(line);
 
         CheckDictionary fo = new CheckDictionary();
-        fo.checkDictionary(line);
+        fo.check(line);
     }
 }
