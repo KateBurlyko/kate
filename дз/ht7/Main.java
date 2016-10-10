@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
 
     /**
-     * Scanner line and call methods which test rules.
+     * Scanner line and call method in which rules are testing.
      *
      * @param args conveys the name of the variable returns the value of a variable.
      */
@@ -18,16 +18,7 @@ public class Main {
         System.out.print("Input string: ");
         line = in.nextLine();
 
-        CheckNoNumber on = new CheckNoNumber();
-        on.checkNoNumber(line);
-
-        CheckNoLetters tw = new CheckNoLetters();
-        tw.checkNoLetters(line);
-
-        CheckNumberWords tr = new CheckNumberWords();
-        tr.checkNumberWords(line);
-
-        CheckDictionary fo = new CheckDictionary();
-        fo.checkDictionary(line);
+        CheckRules ch = new CheckRules();
+        ch.chekRules(line);
     }
 }
