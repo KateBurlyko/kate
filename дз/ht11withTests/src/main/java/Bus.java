@@ -7,7 +7,7 @@ public class Bus extends FuelTransport implements WayToTravel {
      * calls methods for counting time and cost
      * output information about travel
      */
-    public void operation() {
+    public void operation() throws MyExc {
         FuelTransport ft = new FuelTransport();
         double SPEED = 60;
         double PASSENGERS = 37;
@@ -15,10 +15,6 @@ public class Bus extends FuelTransport implements WayToTravel {
         double COUNT = 0.50;
         timeToTravel(SPEED);
         countTravel(SPEED, PASSENGERS, FUEL_CONS, COUNT);
-        if (Double.isInfinite(ft.getCountTravel())) {
-            System.out.println("stat for bus: " + "\n time " + ft.getTime() + " hours" + "\n count " + 0 + " USD");
-        } else {
-            System.out.println("stat for bus: " + "\n time " + ft.getTime() + " hours" + "\n count " + ft.getCountTravel() + " USD");
-        }
+        System.out.println("stat for bus: " + "\n time " + ft.getTime() + " hours" + "\n count " + ft.getCountTravel() + " USD");
     }
 }

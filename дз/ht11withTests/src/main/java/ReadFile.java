@@ -15,7 +15,7 @@ public class ReadFile {
      *
      * @param koord arraylist with value of string from file
      */
-    public static void readFile(ArrayList koord) {
+    public void readFile(ArrayList koord) {
         ArrayList<String> koor = koord;
         try {
             File file = new File("C:\\Users\\Janek\\Desktop\\test.txt");

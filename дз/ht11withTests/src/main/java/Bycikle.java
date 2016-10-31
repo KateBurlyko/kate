@@ -38,6 +38,8 @@ public class Bycikle implements WayToTravel {
      */
     public double timeToTravel(double SPEED) {
         time = (cd.getDistance() / SPEED);
+        if (Double.isNaN(time) || Double.isInfinite(time) || time < 0 || SPEED < 0)
+            throw new ArithmeticException("wrong data for foot");
         return time;
     }
 
@@ -52,6 +54,9 @@ public class Bycikle implements WayToTravel {
     public double countTravel(double SPEED, double PASSENGERS, double FUEL_CONS, double COUNT) {
 
         countTravel = ((FUEL_CONS * SPEED * COUNT) / (100 * cd.getDistance() * PASSENGERS));
+        if (Double.isNaN(countTravel) || Double.isInfinite(countTravel) || countTravel < 0
+                || PASSENGERS < 0 || FUEL_CONS < 0 || SPEED < 0 || COUNT < 0)
+            throw new ArithmeticException("wrong data for foot");
         return countTravel;
     }
 
@@ -59,17 +64,13 @@ public class Bycikle implements WayToTravel {
      * calls methods for counting time and cost
      * output information about travel
      */
-    public void bycicle() {
+    public void bycicle() throws MyExc {
         SPEED = 20;
         PASSENGERS = 1;
         FUEL_CONS = 0;
         COUNT = 0;
         timeToTravel(SPEED);
         countTravel(SPEED, PASSENGERS, FUEL_CONS, COUNT);
-        if (Double.isNaN (getCountTravel())) {
-            System.out.println("stat for bicykle: " + "\n time " + getTime() + " hours" + "\n count " + 0 + " USD");
-        } else {
-            System.out.println("stat for bicykle: " + "\n time " + getTime() + " hours" + "\n count " + getCountTravel() + " USD");
-        }
+        System.out.println("stat for bicykle: " + "\n time " + getTime() + " hours" + "\n count " + getCountTravel() + " USD");
     }
 }

@@ -16,4 +16,36 @@ public class OnFootTest {
         assertEquals(1.20185, k, 0.001);
         p.tearDown();
     }
+
+    @Test
+    public void countTravel() throws MyExc {
+        p.setUp();
+        double c = of.countTravel(5, 1, 0, 0);
+        assertEquals(0, c, 0.001);
+        p.tearDown();
+    }
+    @Test(expected = ArithmeticException.class)
+    public void negativeCountTravel() throws MyExc {
+        p.setUp();
+       of.countTravel(-8, 1, 0, 0);
+        p.tearDown();
+    }
+    @Test(expected = ArithmeticException.class)
+    public void negativeTime() throws MyExc {
+        p.setUp();
+        of.timeToTravel(0);
+        p.tearDown();
+    }
+    @Test(expected = ArithmeticException.class)
+    public void negativeDataCountTravel() throws MyExc {
+        p.setUp();
+        of.countTravel(-5, -8, 0, 0);
+        p.tearDown();
+    }
+    @Test(expected = ArithmeticException.class)
+    public void negativeDataTime() throws MyExc {
+        p.setUp();
+        of.timeToTravel(-5);
+        p.tearDown();
+    }
 }

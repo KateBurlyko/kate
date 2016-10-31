@@ -22,6 +22,10 @@ public class ValidationPoint {
         double ys = (xSum[0].getY() - xSum[(xSum.length) - 1].getY());
         int com = Double.compare(xs, ys);
         if (com == 0) throw new MyExc("incorrect route");
+        {
+        }
         if (1 == coordin.size()) throw new MyExc("incorrect route");
+        {
+        }
     }
 }

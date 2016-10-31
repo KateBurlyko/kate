@@ -14,13 +14,17 @@ public class Main {
     public static void main(String[] args) throws MyExc {
         CallingMethods cm = new CallingMethods();
         cm.methods();
-        Bus b = new Bus();
-        b.operation();
-        Car c = new Car();
-        c.car();
-        Bycikle by = new Bycikle();
-        by.bycicle();
-        OnFoot of = new OnFoot();
-        of.onFoot();
+        try {
+            Bus b = new Bus();
+            b.operation();
+            Car c = new Car();
+            c.car();
+            Bycikle by = new Bycikle();
+            by.bycicle();
+            OnFoot of = new OnFoot();
+            of.onFoot(5,1,0,0);
+        } catch (ArithmeticException e) {
+            System.out.print(e.getMessage());
+        }
     }
 }

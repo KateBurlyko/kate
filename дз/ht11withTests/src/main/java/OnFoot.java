@@ -36,6 +36,8 @@ public class OnFoot implements WayToTravel {
      */
     public double timeToTravel(double SPEED) {
         time = (cd.getDistance() / SPEED);
+        if (Double.isInfinite(time) || Double.isNaN(time) || time < 0 || SPEED < 0)
+            throw new ArithmeticException("wrong data for foot");
         return time;
     }
 
@@ -51,24 +53,27 @@ public class OnFoot implements WayToTravel {
 
     public double countTravel(double SPEED, double PASSENGERS, double FUEL_CONS, double COUNT) {
         countTravel = ((FUEL_CONS * SPEED * COUNT) / (100 * cd.getDistance() * PASSENGERS));
+        if (Double.isNaN(countTravel) || Double.isInfinite(countTravel) || countTravel < 0
+                || PASSENGERS < 0 || FUEL_CONS < 0 || SPEED < 0 || COUNT < 0)
+            throw new ArithmeticException("wrong data for foot");
         return countTravel;
+    }
+
+    public void output() {
+
     }
 
     /**
      * calls methods for counting time and cost
      * output information about travel
      */
-    public void onFoot() {
-        SPEED = 5;
-        PASSENGERS = 1;
-        FUEL_CONS = 0;
-        COUNT = 0;
-        timeToTravel(SPEED);
-        countTravel(SPEED, PASSENGERS, FUEL_CONS, COUNT);
-        if (Double.isNaN(getCountTravels())) {
-            System.out.println("stat for foot: " + "\n time " + getTimes() + " hours" + "\n count " + 0 + " USD");
-        } else {
-            System.out.println("stat for foot: " + "\n time " + getTimes() + " hours" + "\n count " + getCountTravels() + " USD");
-        }
+    public void onFoot(double SPEED, double PASSENGERS, double FUEL_CONS, double COUNT) throws ArithmeticException {
+        //  SPEED = -5;
+//        PASSENGERS = 1;
+//        FUEL_CONS = 0;
+//        COUNT = 0;
+        timeToTravel(-5);
+        countTravel(5, 1, 0, 0);
+        System.out.println("stat for foot: " + "\n time " + getTimes() + " hours" + "\n count " + getCountTravels() + " USD");
     }
 }

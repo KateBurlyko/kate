@@ -45,8 +45,8 @@ public class CountDistanceTest {
 
     @Test
     public void countDistanceAlmostTheSameCoordinates() throws MyExc {
-        coor.add(new Coordinata(4.0000000000000000000000000000000001, 5.0D));
-        coor.add(new Coordinata(4.0D, 5.00000000000000000000000000000000000000000000001));
+        coor.add(new Coordinata(4.00001, 5.0D));
+        coor.add(new Coordinata(4.0D, 5.001));
         double d = cd.countDistance(coor);
         assertEquals(0, d, 1);
     }

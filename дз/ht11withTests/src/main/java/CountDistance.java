@@ -7,7 +7,7 @@ import static java.lang.System.out;
  * contain field distanse
  */
 public class CountDistance {
-    public static double distance;
+    public double distance;
 
     /**
      * count and summarizes distanse between checkpoints
