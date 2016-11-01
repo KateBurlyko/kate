@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Travel Suite">
+    <test name="FuelTransportTest">
+        <classes>
+            <class name="FuelTransportTest"/>
+            </class>
+        </classes>
+   </test>
+  <test name="BycikleCountTest">
+           <classes>
+               <class name="BycikleCountTest"/>
+               </class>
+           </classes>
+   </test>
+   <test name="OnFootTest">
+            <classes>
+               <class name="OnFootTest"/>
+               </class>
+            </classes>
+   </test>
+ </suite>
+
