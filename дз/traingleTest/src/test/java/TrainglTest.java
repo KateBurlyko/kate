@@ -1,8 +1,9 @@
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static java.lang.Double.*;
-import static org.testng.Assert.*;
+import java.math.BigDecimal;
+
+import static org.testng.Assert.assertEquals;
 
 public class TrainglTest {
     Traingl t = new Traingl();
@@ -10,53 +11,56 @@ public class TrainglTest {
     @DataProvider(name = "sides")
     public Object[][] numbers() {
         return new Object[][]{
-                {NaN, 5, 5},
-                {5, NaN, 5},
-                {5, 5, NaN},
-                {NaN, NaN, NaN},
-                {NEGATIVE_INFINITY, 5, 5},
-                {8, NEGATIVE_INFINITY, 5},
-                {5, 5, NEGATIVE_INFINITY},
-                {NEGATIVE_INFINITY, NEGATIVE_INFINITY, NEGATIVE_INFINITY},
-                {POSITIVE_INFINITY, 5, 5},
-                {8, POSITIVE_INFINITY, 5},
-                {8, 5, POSITIVE_INFINITY},
-                {POSITIVE_INFINITY, POSITIVE_INFINITY, POSITIVE_INFINITY},
-                {(-8), (5), (5)},
-                {(5), (-8), (5)},
-                {(5), (5), (-8)},
-                {(0), (0), (0)},
-                {Double.MAX_VALUE, (5), (5)}
+                {BigDecimal.valueOf(-8), BigDecimal.valueOf(5), BigDecimal.valueOf(5)},
+                {BigDecimal.valueOf(5), BigDecimal.valueOf(-8), BigDecimal.valueOf(5)},
+                {BigDecimal.valueOf(5), BigDecimal.valueOf(5), BigDecimal.valueOf(-8)},
+                {BigDecimal.valueOf(8), BigDecimal.valueOf(-5), BigDecimal.valueOf(5)},
+                {BigDecimal.valueOf(5), BigDecimal.valueOf(8), BigDecimal.valueOf(-5)},
+                {BigDecimal.valueOf(0), BigDecimal.valueOf(0), BigDecimal.valueOf(0)},
+                {BigDecimal.valueOf(0), BigDecimal.valueOf(1), BigDecimal.valueOf(0)},
+                {BigDecimal.valueOf(1), BigDecimal.valueOf(0), BigDecimal.valueOf(0)},
+                {BigDecimal.valueOf(0), BigDecimal.valueOf(0), BigDecimal.valueOf(1)},
         };
+    }
+
+    @DataProvider(name = "eror")
+    public Object[][] nu() {
+        return new Object[][]{
+                {BigDecimal.valueOf(1), BigDecimal.valueOf(1), null},
+                {null, BigDecimal.valueOf(1), BigDecimal.valueOf(1)},
+                {BigDecimal.valueOf(1), null, BigDecimal.valueOf(1)}
+        };
+    }
+
+    @Test(dataProvider = "eror", expectedExceptions = NullPointerException.class)
+    public void iangle(BigDecimal a1, BigDecimal b1, BigDecimal c1) {
+        String res = t.tri(a1, b1, c1);
+        assertEquals(res, "This task does not have roots");
     }
 
     @DataProvider(name = "side")
     public Object[][] number() {
         return new Object[][]{
-                {"traingl is equilateral", (5), (5), (5)},
-                {"traingl is usual", (5.0000000000000011), (5.0000000000000021), (5.0000000000000031)},
-                {"traingle is isosceles", (5), (5), (6)},
-                {"traingle is usual", (5), (6), (7)},
-                {"traingle is usual", (5.0000000000000000000001), (4.999999999999999999999), (7)},
-                {"traingle is usual", (5.5), (6.66), (7.777)},
-                {"traingle is usual", (6 / 2), (6 / 3), (7 / 4)},
-                {"traingl is equilateral", (5 / 5), (5 / 5), (5 / 5)},
-                {"traingle is isosceles", Double.MIN_VALUE, (5 / 5), (5 / 5)},
-                {"traingle is isosceles", Double.MIN_VALUE, Double.MAX_VALUE, Double.MAX_VALUE},
-                {"traingl is equilateral", Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE},
-                {"traingl is equilateral", Double.MIN_VALUE, Double.MIN_VALUE, Double.MIN_VALUE}
+                {"traingle is equilateral", BigDecimal.valueOf(5), BigDecimal.valueOf(5), BigDecimal.valueOf(5)},
+                {"traingle is usual", BigDecimal.valueOf(5.000011), BigDecimal.valueOf(5.000021), BigDecimal.valueOf(5.000031)},
+                {"traingle is isosceles", BigDecimal.valueOf(5), BigDecimal.valueOf(5), BigDecimal.valueOf(6)},
+                {"traingle is usual", BigDecimal.valueOf(5), BigDecimal.valueOf(6), BigDecimal.valueOf(7)},
+                {"traingle is usual", BigDecimal.valueOf(5.0000001), BigDecimal.valueOf(4.9999999), BigDecimal.valueOf(7)},
+                {"traingle is usual", BigDecimal.valueOf(5.5), BigDecimal.valueOf(6.66), BigDecimal.valueOf(7.777)},
+                {"traingle is usual", BigDecimal.valueOf(6 / 2), BigDecimal.valueOf(6 / 3), BigDecimal.valueOf(7 / 4)},
+                {"traingle is equilateral", BigDecimal.valueOf(5 / 5), BigDecimal.valueOf(5 / 5), BigDecimal.valueOf(5 / 5)},
         };
     }
 
     @Test(dataProvider = "sides")
-    public void NegativeTestTriangle(double a, double b, double c) {
-        String res = t.tri(a, b, c);
+    public void NegativeTestTriangle(BigDecimal a1, BigDecimal b1, BigDecimal c1) {
+        String res = t.tri(a1, b1, c1);
         assertEquals(res, "This task does not have roots");
     }
 
     @Test(dataProvider = "side")
-    public void PositiveTestTriangle(String expected, double a, double b, double c) {
-        String res = t.tri(a, b, c);
+    public void PositiveTestTriangle(String expected, BigDecimal a1, BigDecimal b1, BigDecimal c1) {
+        String res = t.tri(a1, b1, c1);
         assertEquals(res, expected);
     }
 }

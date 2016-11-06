@@ -1,5 +1,6 @@
 
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 /**
@@ -15,18 +16,17 @@ public class Input {
      * @param c second side
      * @return message
      */
-    public String inputs(double a, double b, double c) {
+    public void inputs(BigDecimal a, BigDecimal b, BigDecimal c) {
         Scanner in = new Scanner(System.in);
         String messa = "";
-            System.out.print("input first side: ");
-            a = in.nextDouble();
-            System.out.print("input second side: ");
-            b = in.nextDouble();
-            System.out.print("input third side: ");
-            c = in.nextDouble();
+        System.out.print("input first side: ");
+        a = in.nextBigDecimal();
+        System.out.print("input second side: ");
+        b = in.nextBigDecimal();
+        System.out.print("input third side: ");
+        c = in.nextBigDecimal();
 
         Traingl tra = new Traingl();
         tra.tri(a, b, c);
-        return messa;
     }
 }
