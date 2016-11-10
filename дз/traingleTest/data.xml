@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<data>
+
+    <negative side-a="-8" side-b="5" side-c="5"/>
+    <negative side-a="5" side-b="-8" side-c="5"/>
+    <negative side-a="5" side-b="5" side-c="-8"/>
+    <negative side-a="-8" side-b="-4" side-c="-8"/>
+
+    <negative side-a="0" side-b="0" side-c="0"/>
+
+    <negative side-a="0" side-b="1" side-c="0"/>
+    <negative side-a="1" side-b="0" side-c="0"/>
+    <negative side-a="0" side-b="0" side-c="1"/>
+
+    <negative side-a="1" side-b="0" side-c="1"/>
+    <negative side-a="1" side-b="1" side-c="0"/>
+    <negative side-a="0" side-b="1" side-c="1"/>
+
+    <positive expected="traingle is equilateral" side-a="5" side-b="5" side-c="5"/>
+    <positive expected="traingle is isosceles" side-a="5" side-b="5" side-c="6"/>
+    <positive expected="traingle is usual" side-a="5" side-b="6" side-c="7"/>
+    <positive expected="traingle is usual" side-a="101" side-b="202" side-c="300"/>
+
+</data>

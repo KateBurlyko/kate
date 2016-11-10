@@ -11,8 +11,12 @@ public class Traingl {
      * @param b second side
      * @param c second side
      */
-    public String tri(BigDecimal a, BigDecimal b, BigDecimal c) throws NullPointerException {
+    public String tri(BigDecimal a, BigDecimal b, BigDecimal c) throws InputExec {
         String message = " ";
+        if (a == null) throw new InputExec("wrong data");
+        {
+        }
+
         if (a.compareTo(BigDecimal.ZERO) == (-1) || a.compareTo(BigDecimal.ZERO) == 0
                 || b.compareTo(BigDecimal.ZERO) == (-1) || b.compareTo(BigDecimal.ZERO) == 0
                 || c.compareTo(BigDecimal.ZERO) == (-1) || c.compareTo(BigDecimal.ZERO) == 0
