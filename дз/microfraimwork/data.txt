@@ -1,0 +1,3 @@
+open "http://stackoverflow.com/" "15"
+checkPageTitle "Stack Overflow"
+checkPageContains "Announcing Developer Story"
