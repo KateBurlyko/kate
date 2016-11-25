@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<data>
+    <command name = "open http://stackoverflow.com/ 15"> </command>
+    <command name = "checkPageTitle Stack Overflow"> </command>
+    <command name = "checkPageContains Announcing Developer Story"> </command>
+</data>
