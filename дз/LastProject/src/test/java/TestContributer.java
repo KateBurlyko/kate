@@ -11,14 +11,16 @@ import static org.testng.AssertJUnit.assertEquals;
  * Created by Janek on 03.12.2016.
  */
 public class TestContributer {
-  private static String URL_HOME_PAGE = "http://localhost:8888/wp-admin/";
+  private static String URL_HOME_PAGE = "http://localhost:8888/";
   private ChromeDriver driver;
   ContributerLoginPage contributerLoginPage;
   ContributerHomePage contributerHomePage;
+  ConectionToSql c = new ConectionToSql();
 
   @BeforeMethod
   public void SetUp() {
     driver = new ChromeDriver();
+    c.addContributer();
     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
   }
 
@@ -26,7 +28,7 @@ public class TestContributer {
   public void testLoginContributer() {
     contributerLoginPage = new ContributerLoginPage(driver);
     contributerLoginPage.openLoginPage();
-    contributerLoginPage.setUserName("contributer");
+    contributerLoginPage.setUserName("Contributer");
     contributerLoginPage.setPassword("1");
     contributerHomePage = contributerLoginPage.enterLoginPageContributer();
 
@@ -35,6 +37,7 @@ public class TestContributer {
 
   @AfterMethod
   public void TearDown() {
+    c.deleteContributer();
     driver.close();
   }
 }

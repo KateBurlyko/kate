@@ -45,4 +45,8 @@ public class EditorAddPost {
   public String getAddPostPageUrl() {
     return driver.getCurrentUrl();
   }
+
+  public void setCategory(String categor) {
+    driver.findElement(By.id("newcategory")).findElement(By.className("form-required")).sendKeys(categor);
+  }
 }

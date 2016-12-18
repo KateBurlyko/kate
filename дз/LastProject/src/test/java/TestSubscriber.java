@@ -16,19 +16,21 @@ import static org.testng.AssertJUnit.assertEquals;
  */
 public class TestSubscriber {
   private static String URL_HOME_PAGE = "http://localhost:8888/wp-admin/profile.php";
-  private static String URL_POST_COMMENT = "REPLY";
+  private static String URL_POST_COMMENT = "Reply";
   private ChromeDriver driver;
   SubscriberLoginPage subscriberLoginPage;
   SubscriberHomePage subscriberHomePage;
   SubscriberPostComment subscriberPostComment;
+  ConectionToSql c = new ConectionToSql();
 
   @BeforeMethod
   public void SetUp() {
     driver = new ChromeDriver();
+    c.addSubscriber();
     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
     subscriberLoginPage = new SubscriberLoginPage(driver);
     subscriberLoginPage.openLoginPage();
-    subscriberLoginPage.setUserName("subscriber");
+    subscriberLoginPage.setUserName("Subscriber");
     subscriberLoginPage.setPassword("1");
     subscriberHomePage = subscriberLoginPage.enterLoginPageSubscriber();
   }
@@ -39,18 +41,19 @@ public class TestSubscriber {
   }
 
   @Test
-  public void testAddPost() {
+  public void testPostAdd() {
     subscriberPostComment = new SubscriberPostComment(driver);
     subscriberPostComment.goToTest();
     subscriberPostComment.goToPost();
-    subscriberPostComment.addComment("Interesting!");
-    subscriberPostComment = subscriberHomePage.enterPostComment();
+   subscriberPostComment.addComment("Amazing!");
+  subscriberPostComment = subscriberHomePage.enterPostComment();
 
     assertEquals(URL_POST_COMMENT, subscriberPostComment.getPostCommentPageUrl());
   }
 
   @AfterMethod
   public void TearDown() {
+  c.deleteSubscriber();
     driver.close();
   }
 }

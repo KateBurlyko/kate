@@ -48,10 +48,24 @@ public class EditorPublish {
     driver.findElement(By.id("publish")).click();
   }
 
-//  /**
-//   * @return
-//   */
-//  public String getStatusPublishedPageUrl() {
-//    return driver.getCurrentUrl();
-//  }
+  public void goToPublish(){
+    driver.findElement(By.linkText("MySQL Editions")).click();
+  }
+
+  public void delPublish(){
+    driver.findElement(By.linkText("Move to Trash")).click();
+  }
+
+  public void undoPublish(){
+    driver.findElement(By.linkText("Undo")).click();
+  }
+
+  public void addNewCategory(){
+    driver.findElement(By.partialLinkText("Add New Category")).click();
+  }
+
+  public void clickAddCategory(){
+    driver.findElement(By.linkText("Add New Category")).sendKeys("caaaat");
+  }
+
 }
