@@ -4,6 +4,7 @@ import Author.AuthorLoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
+import querries.ConnectToMySQL;
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,7 +19,7 @@ public class TestAuthor {
     private AuthorLoginPage authorLoginPage;
     private AuthorHomePage authorHomePage;
     private AuthorAddPost authorAddPost;
-    ConectionToSql c = new ConectionToSql();
+    ConnectToMySQL c = new ConnectToMySQL();
 
     @BeforeMethod
     public void SetUp() {
@@ -48,14 +49,10 @@ public class TestAuthor {
         assertEquals(URL_HOME_PAGE, authorAddPost.getAddPostPageUrl());
         driver.findElement(By.linkText("Posts")).click();
     }
-@Test
-public void teste(){
-        c.addPost();
-}
 
     @AfterMethod
     public void TearDown() {
-       c.deleteAuthor();
+        c.deleteAuthor();
         driver.close();
     }
 }

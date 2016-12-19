@@ -7,17 +7,12 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.testng.AssertJUnit.assertEquals;
 
-/**
- * Created by Janek on 18-дек-16.
- */
 public class TestPageEditor {
-    private static String URL_HOME_PAGE = "http://localhost:8888/wp-admin/";
     private ChromeDriver driver;
     private EditorLoginPage editorLoginPage;
     private EditorHomePage editorHomePage;
-    ConnectToMySQL c = new ConnectToMySQL();
+    querries.ConnectToMySQL c = new querries.ConnectToMySQL();
 
     @BeforeMethod
     public void SetUp() {
@@ -31,6 +26,9 @@ public class TestPageEditor {
         editorHomePage = editorLoginPage.enterLoginPageEditor();
     }
 
+    /**
+     * editor add page
+     */
     @Test
     public void addNewPage() {
         driver.findElement(By.linkText("Pages")).click();
@@ -50,6 +48,9 @@ public class TestPageEditor {
         assert (driver.getCurrentUrl().contains("action=edit"));
     }
 
+    /**
+     * editor draft page
+     */
     @Test
     public void DraftPagepublish() {
         driver.findElement(By.linkText("Pages")).click();
@@ -59,27 +60,32 @@ public class TestPageEditor {
         assert (driver.getCurrentUrl().contains("action=edit"));
     }
 
+    /**
+     * editor publish draft page
+     */
     @Test
     public void editPublishedPage() {
         driver.findElement(By.linkText("Pages")).click();
         driver.findElement(By.linkText("About Belarus")).click();
         driver.findElement(By.id("publish")).click();
         driver.findElement(By.linkText("View page")).click();
-        assert(driver.getCurrentUrl().contains("http://localhost:8888/?page_id="));
+        assert (driver.getCurrentUrl().contains("http://localhost:8888/?page_id="));
         driver.findElement(By.className("post-edit-link")).click();
-        assert(driver.getCurrentUrl().contains("&action=edit"));
+        assert (driver.getCurrentUrl().contains("&action=edit"));
     }
 
+    /**
+     * editor delete published page
+     */
     @Test
     public void deletePublishedPage() {
         driver.findElement(By.linkText("Pages")).click();
         driver.findElement(By.linkText("About Belarus")).click();
-       driver.findElement(By.linkText("Move to Trash")).click();
-       assert(driver.getCurrentUrl().contains("post_type=page"));
+        driver.findElement(By.linkText("Move to Trash")).click();
+        assert (driver.getCurrentUrl().contains("post_type=page"));
         driver.findElement(By.linkText("Undo")).click();
         assert (driver.getCurrentUrl().contains("paged=1"));
     }
-
 
 
     @AfterMethod

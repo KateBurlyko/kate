@@ -56,9 +56,6 @@ public class EditorPublish {
     driver.findElement(By.linkText("Move to Trash")).click();
   }
 
-  public void undoPublish(){
-    driver.findElement(By.linkText("Undo")).click();
-  }
 
   public void addNewCategory(){
     driver.findElement(By.partialLinkText("Add New Category")).click();

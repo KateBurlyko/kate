@@ -1,21 +1,21 @@
-package Editor;
+package Author;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
- * Contains editor's login pages' elements
+ * Contains author's login pages' elements
  */
-public class EditorLogOutPage {
+public class AuthorLogOutPage {
     private WebDriver driver;
 
     /**
-     * Constructor editor's login page
+     * Constructor author's login page
      *
      * @param driver - chrome driver
      */
-    public EditorLogOutPage(ChromeDriver driver) {
+    public AuthorLogOutPage(ChromeDriver driver) {
         this.driver = driver;
     }
 
@@ -23,21 +23,21 @@ public class EditorLogOutPage {
     /**
      * enter the button Login
      *
-     * @return editor's home page
+     * @return author's home page
      */
-    public EditorHomePage goToHomePage() {
+    public AuthorHomePage goToHomePage() {
         driver.findElement(By.id("wp-admin-bar-site-name")).click();
-        return new EditorHomePage((ChromeDriver) driver);
+        return new AuthorHomePage((ChromeDriver) driver);
     }
 
     /**
-     * enter the button Log Out
+     * enter the button Log out
      *
-     * @return editor's home page
+     * @return author's home page
      */
-    public EditorHomePage clickLogOut() {
+    public AuthorHomePage clickLogOut() {
         driver.findElement(By.linkText("Log out")).click();
-        return new EditorHomePage((ChromeDriver) driver);
+        return new AuthorHomePage((ChromeDriver) driver);
     }
 
     public String getHomePageUrl() {

@@ -39,7 +39,7 @@ public class SubscriberPostComment {
      * @param comment - added comment
      */
     public void addComment(String comment) {
-       // driver.findElement(By.xpath("id('comment')")).click();
+        // driver.findElement(By.xpath("id('comment')")).click();
         driver.findElement(By.id("comment")).sendKeys(comment);
     }
 

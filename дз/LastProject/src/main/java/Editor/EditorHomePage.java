@@ -8,34 +8,34 @@ import org.openqa.selenium.chrome.ChromeDriver;
  * Contains editor's home pages' elements
  */
 public class EditorHomePage {
-  private WebDriver driver;
+    private WebDriver driver;
 
-  /**
-   * Constructor editor's home page
-   *
-   * @param driver - chrome driver
-   */
-  public EditorHomePage(ChromeDriver driver) {
-    this.driver = driver;
-  }
+    /**
+     * Constructor editor's home page
+     *
+     * @param driver - chrome driver
+     */
+    public EditorHomePage(ChromeDriver driver) {
+        this.driver = driver;
+    }
 
-  /**
-   * save post
-   *
-   * @return page with added post
-   */
-  public EditorAddPost enterSaveDraft() {
-    driver.findElement(By.id("save-post")).click();
-    return new EditorAddPost((ChromeDriver) driver);
-  }
+    /**
+     * save post
+     *
+     * @return page with added post
+     */
+    public Editor.EditorAddPost enterSaveDraft() {
+        driver.findElement(By.id("save-post")).click();
+        return new Editor.EditorAddPost((ChromeDriver) driver);
+    }
 
-  /**
-   * get home page's url
-   *
-   * @return get home page's url
-   */
-  public String getHomePageUrl() {
-    return driver.getCurrentUrl();
-  }
+    /**
+     * get home page's url
+     *
+     * @return get home page's url
+     */
+    public String getHomePageUrl() {
+        return driver.getCurrentUrl();
+    }
 
 }
